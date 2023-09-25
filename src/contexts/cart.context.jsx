@@ -11,12 +11,23 @@ const checkCart = (cartItems, newItem) => {
   return [...cartItems, { ...newItem, quantity: 1 }];
 };
 
+const itemQuantityDerease = (cartItems, item) => {
+  const isItem = cartItems.find((i) => i.id === item.id);
+  if (isItem.quantity <= 1) {
+    return cartItems.filter((cartItem) => cartItem.id != item.id);
+  }
+  return cartItems.map((i) =>
+    i.id === item.id ? { ...i, quantity: i.quantity - 1 } : i
+  );
+};
+
 export const CartContext = createContext({
   isActive: null,
   setIsActive: () => null,
   cartItems: [],
   updateCart: () => {},
   cartCount: 0,
+  updateQuantity: () => {},
 });
 
 export const CartProvider = ({ children }) => {
@@ -31,6 +42,17 @@ export const CartProvider = ({ children }) => {
   const updateCart = (newItem) => {
     setCartItems(checkCart(cartItems, newItem));
   };
-  const value = { isActive, cartItems, updateCart, setIsActive, cartCount };
+
+  const updateQuantity = (item) => {
+    setCartItems(itemQuantityDerease(cartItems, item));
+  };
+  const value = {
+    isActive,
+    cartItems,
+    updateCart,
+    setIsActive,
+    cartCount,
+    updateQuantity,
+  };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
