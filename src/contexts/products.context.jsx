@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
-import SHOP_DATA from "../shop-data.json";
+import { createContext, useState, useEffect } from "react";
+import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils";
 
 export const ProductsContext = createContext({
   product: [],
@@ -8,8 +8,17 @@ export const ProductsContext = createContext({
 });
 
 export const ProductsProvider = ({ children }) => {
-  const [products, setProducts] = useState(SHOP_DATA);
+  const [products, setProducts] = useState([]);
   const value = { products };
+
+  useEffect(() => {
+    const getCategoriesMap = async () => {
+      const categoryMap = await getCategoriesAndDocuments();
+      console.log(categoryMap);
+    };
+    getCategoriesMap();
+  }, []);
+
   return (
     <ProductsContext.Provider value={value}>
       {children}
