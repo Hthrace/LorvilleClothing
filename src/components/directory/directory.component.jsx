@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import "./directory.styles.scss";
-import CatergoryItem from "../category-item/category-item.component";
+import DirectoryItem from "../directory-item/directory-item.component";
 
 const Directory = ({ categories }) => {
   return (
     <div className="directory-container">
       {categories.map((c) => (
-        <CatergoryItem key={c.id} catergories={c} />
+        <DirectoryItem key={c.id} catergories={c} />
       ))}
     </div>
   );

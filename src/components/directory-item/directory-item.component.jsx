@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
-import "./category-item.styles.scss";
+import "./directory-item.styles.scss";
 
-const CatergoryItem = ({ catergories }) => {
+const DirectoryItem = ({ catergories }) => {
   const { title, imageUrl } = catergories;
   return (
-    <div className="category-container">
+    <div className="directory-item-container">
       <div
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
-      <div className="category-body-container">
+      <div className="body">
         <h2>{title}</h2>
         <p>Shop Now</p>
       </div>
@@ -17,4 +17,4 @@ const CatergoryItem = ({ catergories }) => {
   );
 };
 
-export default CatergoryItem;
+export default DirectoryItem;
