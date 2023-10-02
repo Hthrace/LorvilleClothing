@@ -1,7 +1,17 @@
 /* eslint-disable react/prop-types */
-import "./checkout-item.styles.scss";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/cart.context";
+import {
+  CheckoutItemContainer,
+  ImageContainer,
+  Image,
+  Name,
+  Quantity,
+  Price,
+  Value,
+  Arrow,
+  RemoveButton,
+} from "./checkout-item.styles";
 
 const CheckoutItem = ({ item }) => {
   const { updateCart, updateQuantity, removeCartItem } =
@@ -12,27 +22,21 @@ const CheckoutItem = ({ item }) => {
   const removeItem = () => removeCartItem(item);
 
   return (
-    <div className="checkout-item-container">
-      <div className="image-container">
-        <img src={imageUrl} alt={`${name}`} />
-      </div>
-      <span className="name">{name}</span>
+    <CheckoutItemContainer>
+      <ImageContainer>
+        <Image src={imageUrl} alt={`${name}`} />
+      </ImageContainer>
+      <Name>{name}</Name>
 
-      <span className="quantity">
-        <div className="arrow" onClick={decreaseQuantity}>
-          &#10094;
-        </div>
-        <span className="value">{quantity}</span>
-        <div className="arrow" onClick={increaseQuantity}>
-          &#10095;
-        </div>
-      </span>
+      <Quantity>
+        <Arrow onClick={decreaseQuantity}>&#10094;</Arrow>
+        <Value>{quantity}</Value>
+        <Arrow onClick={increaseQuantity}>&#10095;</Arrow>
+      </Quantity>
 
-      <span className="price"> ${price}</span>
-      <div className="remove-button" onClick={removeItem}>
-        &#10005;
-      </div>
-    </div>
+      <Price> ${price}</Price>
+      <RemoveButton onClick={removeItem}>&#10005;</RemoveButton>
+    </CheckoutItemContainer>
   );
 };
 
