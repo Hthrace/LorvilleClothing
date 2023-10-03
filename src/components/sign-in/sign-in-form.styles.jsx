@@ -20,4 +20,9 @@ export const SignInContainer = styled.div`
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 600px) {
+    width: 85vw;
+    grid-gap: 20px;
+  }
 `;
