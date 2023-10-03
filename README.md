@@ -1,4 +1,4 @@
-# Lorville Clothing - A Showcase of Technical Proficiency
+# Lorville Clothing - E-commerce Platform
 
 Lorville Clothing is a blend of industry standard technologies, carefully harnessed to create a compelling e-commerce platform. This project serves as a portfolio application, meticulously crafted to demonstrate my proficiency in a range of key technologies, including React, React Router, Firebase, Styled Components, and OAuth authentication.
 
