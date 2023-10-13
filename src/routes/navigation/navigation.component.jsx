@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext } from "react";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import CrwnLogo from "../../assets/crown.svg";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
