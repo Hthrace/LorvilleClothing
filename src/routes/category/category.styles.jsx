@@ -15,4 +15,11 @@ export const CategoryProduct = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 50px;
+  margin-right: 200px;
+  margin-left: 200px;
+
+  @media screen and (max-width: 600px) {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
 `;
