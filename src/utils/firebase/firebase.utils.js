@@ -78,6 +78,7 @@ export const createUserDocumentFromAuth = async (
   const userSnapShot = await getDoc(userDocRef);
   if (!userSnapShot.exists()) {
     const { displayName, email } = userAuth;
+    console.log(displayName)
     const createdAt = new Date();
     try {
       await setDoc(userDocRef, {
@@ -90,7 +91,7 @@ export const createUserDocumentFromAuth = async (
       console.log(`Error creating user!: ${err}`);
     }
   }
-  return userDocRef;
+  return userSnapShot;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -103,8 +104,21 @@ export const signInAuthWithEmailAndPassword = async (email, password) => {
   return await signInWithEmailAndPassword(auth, email, password);
 };
 
-export const signOutUser = async () => await signOut(auth);
+export const signOutUser = () => signOut(auth);
 
 export const onAuthStateChangedListener = (callback) => {
   onAuthStateChanged(auth, callback);
+};
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
 };
