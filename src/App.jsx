@@ -6,7 +6,7 @@ import {
   createUserDocumentFromAuth,
 } from "./utils/firebase/firebase.utils";
 // import { createAction } from "./utils/reducer/reducer.utils";
-import { setCurrentUser } from "./store/user/user.action";
+import { setCurrentUser } from "./store/user/user.reducer";
 import { useDispatch } from "react-redux";
 import Navigation from "./routes/navigation/navigation.component";
 import Authentication from "./routes/authentication/authentication.component";
@@ -24,7 +24,7 @@ const App = () => {
       dispatch(setCurrentUser(user));
     });
     return unsubscribe;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
