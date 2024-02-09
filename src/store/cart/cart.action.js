@@ -1,5 +1,4 @@
-import { createAction } from "../../utils/reducer/reducer.utils";
-import { CART_ACTION_TYPES } from "./cart.types";
+import { setCartActive, setCartItems } from "./cart.reducer";
 
 const checkCart = (cartItems, newItem) => {
   const isItem = cartItems.find((i) => i.id === newItem.id);
@@ -25,20 +24,21 @@ const itemRemoval = (cartItems, item) =>
   cartItems.filter((i) => i.id !== item.id);
 
 export const updateCart = (cartItems, newItem) => {
+  console.log(cartItems)
   const newCartItems = checkCart(cartItems, newItem);
-  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
+  return setCartItems(newCartItems)
 };
 
 export const updateQuantity = (cartItems, item) => {
   const newCartItems = itemQuantityDerease(cartItems, item);
-  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
+  return setCartItems(newCartItems)
 };
 
 export const removeCartItem = (cartItems, item) => {
   const newCartItems = itemRemoval(cartItems, item);
-  return createAction(CART_ACTION_TYPES.SET_CART_ITEMS, newCartItems);
+  return setCartItems(newCartItems)
 };
 
 export const setIsActive = (bool) => {
-  return createAction(CART_ACTION_TYPES.SET_IS_CART_ACTIVE, bool);
+  return setCartActive(bool)
 };

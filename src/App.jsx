@@ -5,7 +5,6 @@ import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth,
 } from "./utils/firebase/firebase.utils";
-// import { createAction } from "./utils/reducer/reducer.utils";
 import { setCurrentUser } from "./store/user/user.reducer";
 import { useDispatch } from "react-redux";
 import Navigation from "./routes/navigation/navigation.component";
