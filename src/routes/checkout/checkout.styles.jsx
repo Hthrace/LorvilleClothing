@@ -15,7 +15,7 @@ export const CheckoutHeader = styled.div`
   text-align: center;
 `;
 export const Total = styled.span`
-  margin-top: 30px;
+  margin-top: 10px;
   margin-left: auto;
   font-size: 36px;
 `;
