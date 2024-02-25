@@ -1,4 +1,5 @@
 # Lorville Clothing - E-commerce Platform
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cf11d7b7-171b-4ca9-abac-ba56dfe99d66/deploy-status)](https://app.netlify.com/sites/keen-maamoul-18376d/deploys)
 
 Lorville Clothing is a blend of industry standard technologies, carefully harnessed to create a compelling e-commerce platform. This project serves as a portfolio application, meticulously crafted to demonstrate my proficiency in a range of key technologies, including React, Redux, React Router, Firebase, Styled Components, and OAuth authentication.
 
